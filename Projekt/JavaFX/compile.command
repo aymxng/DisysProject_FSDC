@@ -1,0 +1,1 @@
+#!/bin/bash javac --module-path /Users/ayman/Documents/JavaFX/lib/ --add-modules javafx.controls,javafx.graphics,javafx.media,javafx.fxml *.java

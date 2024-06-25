@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Import statements for necessary JavaFX classes -->
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Our main container (AnchorPane) which sets preferred height and width. Defines the OrderController as our controller. -->
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.technikum.javafx.OrderController">
+   <children>
+       <!-- SplitPane to divide the UI into sections. -->
+      <SplitPane dividerPositions="0.5" prefHeight="400.0" prefWidth="600.0">
+        <items>
+            <!-- A vertical box layout for organizing controls -->
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                   <!-- Define TextField to enter customerID -->
+                  <TextField fx:id="customerId"  />
+                   <!-- Button to send a request, triggering the getCustomerDetailByCustomerId method in the controller. -->
+                  <Button mnemonicParsing="false" onAction="#getCustomerDetailByCustomerId" text="Send Request">
+                     <VBox.margin>
+                         <!-- Insets for the Button to provide spacing. -->
+                        <Insets bottom="40.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+
+                   <!-- Label for displaying responses, identified by fx:id="responseLabel" with text wrapping enabled. -->
+                   <Label fx:id="responseLabel"  prefWidth="200.0" wrapText="true" >  </Label>
+
+                   <!-- Initial hidden Button to download the invoice, triggers generateIfPdfIfCustomerDataExist method. -->
+                   <Button mnemonicParsing="false" fx:id="downloadButton" onAction="#generateIfPdfIfCustomerDataExist" visible="false" text="Download inovice">
+
+                       <VBox.margin>
+                           <Insets bottom="40.0" top="10.0" />
+                       </VBox.margin>
+                   </Button>
+               </children>
+            </VBox>
+<!--            <VBox prefHeight="200.0" prefWidth="100.0">-->
+<!--               <children>-->
+<!--                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="298.0" text="Update" onAction="#updateList" />-->
+<!--                  <ListView prefHeight="372.0" prefWidth="297.0" fx:id="orderList" />-->
+<!--               </children>-->
+<!--            </VBox>-->
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

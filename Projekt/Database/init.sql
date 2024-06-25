@@ -1,0 +1,13 @@
+CREATE DATABASE dist;
+--GRANT ALL PRIVILEGES ON DATABASE dist TO distuser;
+\c dist
+
+CREATE TABLE orders (
+	id serial PRIMARY KEY,
+	type VARCHAR ( 255 ) NOT NULL,
+	name VARCHAR (255 ) NOT NULL,
+	status VARCHAR ( 255 ) NOT NULL,
+	job_id VARCHAR (255 ) NOT NULL,
+	worker_id VARCHAR ( 255 ) NOT NULL,
+	last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

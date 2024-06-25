@@ -1,0 +1,23 @@
+# Dockerfile.openjfx-builder
+
+# Use OpenJDK 17 with Alpine Linux as base image
+FROM openjdk:17-alpine as openjfx-builder
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the Maven project files
+COPY pom.xml .
+
+# Build dependencies and compile application code
+RUN apk --no-cache add maven \
+    && mvn dependency:go-offline
+
+# Copy the source code
+COPY src ./src
+
+# Package the application
+RUN mvn package
+
+# Set the path where JavaFX is installed (optional, if needed in the final image)
+ENV JAVA_HOME /usr/lib/jvm/default-jvm
